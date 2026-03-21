@@ -1,17 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{8d71805a-d08e-4e22-8650-19cf99a7ef97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="include">
+      <UniqueIdentifier>{0444bc3e-e407-4505-af7d-cd5c4c09af94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MainWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\myAISObj.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\myAisOwner.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OcctWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\View.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\MainWindow.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mAIS.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myAisComman.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myAISObj.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myAisOwner.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myShape.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OcctWindow.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\View.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
