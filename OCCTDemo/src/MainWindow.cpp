@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+﻿#include "MainWindow.h"
 #include "myAISObj.h"
 #include "BRepBuilderAPI_MakeVertex.hxx"
 #include "GeomAPI_Interpolate.hxx"
@@ -557,8 +557,7 @@ void MainWindow::updateStatusBar(const std::vector<double>& aNewPos)
   gp_Pnt atPoint(xAt , yAt , zAt);
 
   //gp_Dir eyeDir(gp_Vec(eyePoint , atPoint));
-  Handle(Graphic3d_Camera) cam = view_occt->getView()->Camera();
-
+  Handle(Graphic3d_Camera) cam = view_occt->getView()->Camera(); 
   gp_Dir eyeDir = cam->Direction();   // 视线方向（从 Eye 指向 At）
 	gp_Pln plnAt = gp_Pln(atPoint , eyeDir);
 

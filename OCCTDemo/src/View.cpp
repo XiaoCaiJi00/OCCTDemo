@@ -1,4 +1,4 @@
-#include "View.h"
+﻿#include "View.h"
 
 static QCursor* defCursor = nullptr;
 static QCursor* handCursor = nullptr;
@@ -212,12 +212,8 @@ void View::setAxis()
 	aisTrihedron->SetDatumPartColor(Prs3d_DP_YAxis , Quantity_NOC_GREEN2);
 	aisTrihedron->SetDatumPartColor(Prs3d_DP_ZAxis , Quantity_NOC_BLUE2);
 
-	//缩放时会有问题
-  Handle(Graphic3d_TransformPers) pers =
-    new Graphic3d_TransformPers(
-      Graphic3d_TMF_ZoomPers ,   // 与视图缩放无关
-      gp_Pnt(0 , 0 , 0)           // 参考点
-    );
+	//缩放会有问题
+  Handle(Graphic3d_TransformPers) pers = new Graphic3d_TransformPers(Graphic3d_TMF_ZoomPers, gp_Pnt(0 , 0 , 0));
 
 	aisTrihedron->SetTransformPersistence(pers);
 

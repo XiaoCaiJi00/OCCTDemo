@@ -119,6 +119,21 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd\Qt6\msvc2022_64\lib\;$(SolutionDir)3rd\OCCT790\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt6Cored.lib
+;Qt6Guid.lib
+;Qt6Widgetsd.lib;TKBRep.lib;
+TKGeomBase.lib;
+TKGeomAlgo.lib;
+TKMath.lib;
+TKernel.lib
+;TKG3d.lib
+;TKG2d.lib
+;TKService.lib
+;TKTopAlgo.lib
+;TKV3d.lib
+;TKOpenGl.lib;TKPrim.lib;
+TKOffset.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
