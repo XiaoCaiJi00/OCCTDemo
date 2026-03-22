@@ -7,9 +7,6 @@
     <Filter Include="include">
       <UniqueIdentifier>{0444bc3e-e407-4505-af7d-cd5c4c09af94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="moc">
-      <UniqueIdentifier>{e3a42275-6e98-4e98-b696-34eb6d1a278d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -29,12 +26,6 @@
     </ClCompile>
     <ClCompile Include="src\View.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\moc_MainWindow.cpp">
-      <Filter>moc</Filter>
-    </ClCompile>
-    <ClCompile Include="moc\moc_View.cpp">
-      <Filter>moc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,9 +47,6 @@
     <ClInclude Include="src\OcctWindow.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="src\View.h">
-      <Filter>include</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />
@@ -67,5 +55,6 @@
     <QtMoc Include="src\MainWindow.h">
       <Filter>include</Filter>
     </QtMoc>
+    <QtMoc Include="src\View.h" />
   </ItemGroup>
 </Project>
