@@ -172,8 +172,6 @@ TKOffset.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="moc\moc_MainWindow.cpp" />
-    <ClCompile Include="moc\moc_View.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainWindow.cpp" />
     <ClCompile Include="src\myAISObj.cpp" />
@@ -189,7 +187,7 @@ TKOffset.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="src\myAisOwner.h" />
     <ClInclude Include="src\myShape.h" />
     <ClInclude Include="src\OcctWindow.h" />
-    <ClInclude Include="src\View.h" />
+    <QtMoc Include="src\View.h" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Resource.qrc" />
