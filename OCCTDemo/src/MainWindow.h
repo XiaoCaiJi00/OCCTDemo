@@ -28,6 +28,7 @@ public:
 	void setWorkArea(int index);
 	void runAiscCustom();
 	void runModelingData();
+	void runTest();
 
 protected:
 	virtual bool eventFilter(QObject* watched , QEvent* event) override;
@@ -81,6 +82,10 @@ private:
   QToolBar* tb_modelingData;
   QComboBox* cbb_modelingData;
   QAction* act_modelingData;
+
+  QToolBar* test_bar;
+  QComboBox* test_cbb;
+  QAction* test_act;
 
 
 

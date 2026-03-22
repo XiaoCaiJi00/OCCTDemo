@@ -91,7 +91,7 @@ void MainWindow::initMenuToolbar()
   lb_workArea = new QLabel(this);
   lb_workArea->setText("workArea: ");
   cbb_workAreas = new QComboBox(this);
-  cbb_workAreas->addItems({ "None", "AISCustomPresentation", "Interpolations and Approximations"});
+  cbb_workAreas->addItems({ "None", "AISCustomPresentation", "Interpolations and Approximations", "test"});
 
 	//AisObject
   tb_aisCustom = new QToolBar(this);
@@ -114,6 +114,17 @@ void MainWindow::initMenuToolbar()
 	tb_modelingData->addWidget(cbb_modelingData);
   act_modelingData = new QAction(QIcon(":/icons/icons/run.png") , "run" , this);
 	tb_modelingData->addAction(act_modelingData);
+
+	//test my 
+  test_bar = new QToolBar(this);
+	test_bar->setVisible(false);
+  addToolBar(test_bar);
+  tbs.push_back(test_bar);
+  test_cbb = new QComboBox(this);
+	test_cbb->addItems({ "test1" });
+  test_bar->addWidget(test_cbb);
+  test_act = new QAction(QIcon(":/icons/icons/run.png"), "run", this);
+	test_bar->addAction(test_act);
 
 
 	tb_style->addActions({ act_color,act_material});
@@ -162,6 +173,7 @@ void MainWindow::initSignals()
 	connect(cbb_workAreas , &QComboBox::currentIndexChanged, this , &MainWindow::setWorkArea);
 	connect(act_aisCustom , &QAction::triggered, this , &MainWindow::runAiscCustom);
 	connect(act_modelingData , &QAction::triggered, this , &MainWindow::runModelingData);
+	connect(test_act , &QAction::triggered, this , &MainWindow::runTest);
 }
 
 void MainWindow::test()
@@ -513,6 +525,12 @@ void MainWindow::runModelingData()
 
 	}
 	view_occt->fitAll();
+}
+
+void MainWindow::runTest()
+{
+
+
 }
 
 bool MainWindow::eventFilter(QObject* watched , QEvent* event)
