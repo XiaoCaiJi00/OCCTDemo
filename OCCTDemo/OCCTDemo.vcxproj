@@ -161,14 +161,17 @@ TKOffset.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$(SolutionDir)3rd\Qt6\msvc2022_64\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>Default</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;$(SolutionDir)3rd\Qt6\msvc2022_64\include\;$(SolutionDir)3rd\OCCT790\inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Qt6Core.lib;Qt6Gui.lib;Qt6Widgets.lib;TKBRep.lib;TKGeomBase.lib;TKGeomAlgo.lib;TKMath.lib;TKernel.lib;TKG3d.lib;TKG2d.lib;TKService.lib;TKTopAlgo.lib;TKV3d.lib;TKOpenGl.lib;TKPrim.lib;TKOffset.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd\Qt6\msvc2022_64\lib\;$(SolutionDir)3rd\OCCT790\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
