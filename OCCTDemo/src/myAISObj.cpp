@@ -86,6 +86,21 @@ void MyAisObject1::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr ,
 
 void MyAisObject1::ComputeSelection(const Handle(SelectMgr_Selection)& theSel , const Standard_Integer theMode)
 {
+  Standard_Real aDefl = StdPrs_ToolTriangulatedShape::GetDeflection(m_shape, myDrawer);
+  StdSelect_BRepSelectionTool::Load(theSel, this, m_shape, TopAbs_SHAPE, aDefl,
+    myDrawer->DeviationAngle(),
+    myDrawer->IsAutoTriangulation());
+
+  /*const double aRadius = 100.0, aHeight = 100.0;
+  Handle(SelectMgr_EntityOwner) anOwner = new SelectMgr_EntityOwner(this);
+  Handle(Graphic3d_ArrayOfTriangles) aTris =
+    Prs3d_ToolCylinder::Create(aRadius, aRadius, aHeight, 25, 25, gp_Trsf());
+  Handle(Select3D_SensitivePrimitiveArray) aSensTri =
+    new Select3D_SensitivePrimitiveArray(anOwner);
+  aSensTri->InitTriangulation(aTris->Attributes(), aTris->Indices(),
+    TopLoc_Location());
+  theSel->Add(aSensTri);*/
+
 }
 
 bool MyAisObject1::AcceptDisplayMode(const Standard_Integer theMode) const

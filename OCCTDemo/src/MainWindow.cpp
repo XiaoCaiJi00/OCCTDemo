@@ -15,6 +15,11 @@
 #include "GeomAPI_ProjectPointOnCurve.hxx"
 #include "GProp_GProps.hxx"
 #include "BRepGProp.hxx"
+#include <Geom2d_TrimmedCurve.hxx>
+#include <Geom2d_Circle.hxx>
+#include <Geom2dAPI_InterCurveCurve.hxx>
+#include <ElSLib.hxx>
+#include "Geom_Line.hxx"
 
 
 static Handle(Geom_BSplineCurve) createBSpline(const std::vector<gp_Pnt>& pts)
@@ -529,7 +534,57 @@ void MainWindow::runModelingData()
 
 void MainWindow::runTest()
 {
+  // 创建两条曲线
+  gp_Pnt2d p1(0, 0);
+  gp_Pnt2d p2(10, 10);
+  // 创建通过P1和P2的直线
+  gp_Vec2d vec(p1, p2);
+  gp_Dir2d dir(vec);
+  Handle(Geom2d_Line) line = new Geom2d_Line(p1, dir);
 
+  gp_Pnt p3(0, 0, 0);
+  gp_Pnt p4(10, 10, 0);
+  // 创建通过P1和P2的直线
+  gp_Vec vec2(p3, p4);
+  gp_Dir dir2(vec2);
+  Handle(Geom_Line) line2 = new Geom_Line(p3, dir2);
+
+  gp_Pln plane(gp_Pnt(0, 0, 0), gp_Dir(0, 0, 1));
+  Handle(Geom_Plane) geomPlane = new Geom_Plane(plane);
+  // 计算P1和P2在直线上的参数
+  Standard_Real u1 = 0.0; // P1在直线上的参数为0
+  Standard_Real u2 = vec.Magnitude(); // P2在直线上的参数为向量长度
+
+  // 创建修剪曲线（有限长线段）
+  Handle(Geom2d_TrimmedCurve) segment = new Geom2d_TrimmedCurve(line, u1, u2);
+
+	TopoDS_Edge trimLine = BRepBuilderAPI_MakeEdge(segment, geomPlane, 0.0, 14.1421);
+	//TopoDS_Edge trimLine = BRepBuilderAPI_MakeEdge(line2);
+  Handle(AIS_InteractiveObject) aisLine = new MyAisObject1(trimLine);
+  myContext->Display(aisLine, 0, 0, false);
+
+  gp_Ax2d axis(gp_Pnt2d(5, 0), gp_Dir2d(1, 0));
+  Handle(Geom2d_Circle) circle = new Geom2d_Circle(axis, 5);
+  TopoDS_Edge cir = BRepBuilderAPI_MakeEdge(circle, geomPlane);
+  Handle(AIS_InteractiveObject) aisCir = new MyAisObject1(cir);
+  myContext->Display(aisCir, 0, 0, false);
+  // 计算交点
+  Geom2dAPI_InterCurveCurve intersector(segment, circle);
+
+  // 检查是否有交点
+  if (intersector.NbPoints() > 0) {
+    // 获取交点
+    for (int i = 1; i <= intersector.NbPoints(); i++) {
+			gp_Pnt2d point = intersector.Point(i);
+      gp_Pnt point3d = ElSLib::Value(point.X(), point.Y(), plane);
+			TopoDS_Vertex vertex = BRepBuilderAPI_MakeVertex(point3d);
+      Handle(AIS_InteractiveObject) aisVertex = new MyAisObject1(vertex);
+      myContext->Display(aisVertex, 0, 0, false);
+      // 使用交点信息
+      // ...
+    }
+  }
+	view_occt->fitAll();
 
 }
 
